@@ -1,9 +1,7 @@
 .weather-app {
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #dadde1;
-    border-radius: 5px;
+    
 }
 
 h1 {
@@ -14,7 +12,7 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 0;
     position: relative;
-    top: 50px;
+    top: 30px;
 
 }
 
@@ -37,12 +35,12 @@ li {
     line-height: 19px;
     text-align: left;
     position: relative;
-    top: 50px;
+    top: 30px;
+    text-transform: capitalize;
 }
 
 .forecast {
     margin: 0;
-    padding: 0;
     color: #878787;
     display: block;
     font-family: Arial, Helvetica, sans-serif;
@@ -50,7 +48,19 @@ li {
     font-weight: 100;
     height: 19px;
     line-height: 19px;
+    padding: 35px;
+    width: 600px;
+    position: relative;
+    left: 35px;
     
+}
+
+.current-temp {
+    position: relative;
+    top: 20px;
+    left: -80px;
+    width: 600px;
+    padding: 35px;
 }
 
 
@@ -59,7 +69,7 @@ li {
     line-height: 1;
     font-weight: 400;
     position: relative;
-    left: 350px;
+    left: 250px;
     color: #004445;
 }
 
@@ -67,19 +77,10 @@ li {
     position: relative;
     font-size: 16px;
     top: -34px;
-    left: 350px;
+    left: 250px;
     color: #878787;
-}
-
-
-.forecast {
-    padding: 35px;
-    width: 600px;
-    position: relative;
-    left: 35px;
 }
 
 .five-hours {
     color: #2c786c;
-    font-weight: 900px;
 }
