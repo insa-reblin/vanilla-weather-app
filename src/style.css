@@ -36,6 +36,10 @@ li {
     text-align: left;
     position: relative;
     top: 30px;
+    
+}
+
+li::first-letter {
     text-transform: capitalize;
 }
 
