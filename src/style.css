@@ -89,3 +89,14 @@ li::first-letter {
     size: 10px;
     
 }
+
+.weather-tempreture .active {
+    color: #004445;
+    cursor: default;
+    text-decoration: none;
+}
+
+.weather-tempreture .active.hover {
+    text-decoration: none;
+
+}
