@@ -85,6 +85,7 @@ li::first-letter {
     color: #878787;
 }
 
-.five-hours {
-    color: #2c786c;
+.icon {
+    size: 10px;
+    right: 200px;
 }
