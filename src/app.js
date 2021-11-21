@@ -1,6 +1,6 @@
 function formatDate(timestamp) {
     let date = new Date(timestamp);
-    let hours = timestamp.getHours();
+    let hours = date.getHours();
     if (hours < 10) {
         hours = `0${hours}`;
     }
@@ -14,18 +14,28 @@ function formatDate(timestamp) {
 
 }
 
+function formatDat(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sunday", "Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday"];
+
+    return days[day];
+}
+
+
+
 
 function displayTempreture(response) {
     let tempretureElement = document.querySelector("#tempreture");
-    let cityElement = document.querySelector("city");
-    let description = document.querySelector("description");
-    let dateElement = document.querySelector("date");
-    let iconElement = document.querySelector("icon");
+    let cityElement = document.querySelector("#city");
+    let description = document.querySelector("#description");
+    let dateElement = document.querySelector("#date");
+    let iconElement = document.querySelector("#icon");
 
     tempretureElement.innerHTML = Math.round(response.data.main.temp);
     cityElement.innerHTML = response.data.name;
     description.innerHTML = response.data.weather[0].description;
-    dateElement.innerHTML = formatDate(response.data.date * 1000);
+    dateElement.innerHTML = formatDate(response.data.dt * 1000);
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
@@ -44,8 +54,16 @@ function handelSubmit(event) {
     
 }
 
-search("New York")
+function displayFahrenheitTemp(event) {
+    event.preventDefault();
+    alert("lik")
+}
+
+search("London")
 
 
 let form = document.querySelector("search-form");
 form.addEventListener("submit", handelSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("clik", displayFahrenheitTemp)
