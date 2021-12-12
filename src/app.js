@@ -41,23 +41,23 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class ="row">`;
-  let days = ["Thurs", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
+  let forecast = response.data.daily;
+  forecast.forEach(function (forcastDay) {
     forecastHTML =
       forecastHTML +
       ` 
      <div class="row">
                 <div class="col-2">
                     <div class="weather-forecast-date">
-                        ${day}
+                        ${forecastDay.dt}
                     </div>
-                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width="40"><img/>
+                    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="40"><img/>
                     <div class="weather-forecast-tempreture">
                         <span class="weather-forecast-temp-max">
-                            18°
+                            ${forecastDay.temp.max}°
                         </span>
                         <span class="weather-forecast-temp-min">
-                            12°
+                            ${forecastDay.temp.min}°
                         </span>
                     </div>
                 </div>
@@ -123,13 +123,13 @@ function displayCelsiusTemp(event) {
 
 let celsiusTemp = null;
 
-let form = document.querySelector("search-form");
+let form = document.querySelector("#search-form");
 form.addEventListener("submit", handelSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("clik", displayFahrenheitTemp);
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
-let celsuisLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("clik", displayCelsiusTemp);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Singapore");
