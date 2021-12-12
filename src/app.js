@@ -37,31 +37,42 @@ function formatDat(timestamp) {
   return days[day];
 }
 
+function formatDay(date) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class ="row">`;
   let forecast = response.data.daily;
-  forecast.forEach(function (forcastDay) {
-    forecastHTML =
-      forecastHTML +
-      ` 
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        ` 
      <div class="row">
                 <div class="col-2">
                     <div class="weather-forecast-date">
-                        ${forecastDay.dt}
+                        ${formatDay(forecastDay.dt)}
                     </div>
-                    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="40"><img/>
+                    <img src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png" alt="" width="40"><img/>
                     <div class="weather-forecast-tempreture">
                         <span class="weather-forecast-temp-max">
-                            ${forecastDay.temp.max}°
+                            ${Math.round(forecastDay.temp.max)}°
                         </span>
                         <span class="weather-forecast-temp-min">
-                            ${forecastDay.temp.min}°
+                            ${Math.round(forecastDay.temp.min)}°
                         </span>
                     </div>
                 </div>
      `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -104,7 +115,7 @@ function search(city) {
 
 function handelSubmit(event) {
   event.preventDefault();
-  let cityInputElement = document.querySelector("city-input");
+  let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
 
