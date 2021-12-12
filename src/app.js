@@ -23,8 +23,6 @@ function formatDat(timestamp) {
 }
 
 
-
-
 function displayTempreture(response) {
     let tempretureElement = document.querySelector("#tempreture");
     let cityElement = document.querySelector("#city");
@@ -69,17 +67,15 @@ function displayCelsiusTemp(event) {
     tempretureElement.innerHTML = Math.round(celsiusTemp);
 }
 
-
-
 let celsiusTemp = null;
 
 let form = document.querySelector("search-form");
 form.addEventListener("submit", handelSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("clik", displayFahrenheitTemp)
+fahrenheitLink.addEventListener("clik", displayFahrenheitTemp);
 
 let celsuisLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("clik", displayCelsiusTemp)
+celsiusLink.addEventListener("clik", displayCelsiusTemp);
 
-search("London")
+search("Singapore");
